@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+watch = require('gulp-watch');
 
 //CLI: gulp
 gulp.task('default', function(){
@@ -8,4 +9,11 @@ gulp.task('default', function(){
 //CLI: gulp html
 gulp.task('html', function(){
 	console.log("Wicked HTML edits, bro!");
+});
+
+//Watches for changes to the index.html file.
+gulp.task('watch', function(){
+	watch('./app/index.html', function(){
+		gulp.start('html'); //Trigger our HTML task.
+	});
 });
