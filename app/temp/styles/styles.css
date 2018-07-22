@@ -1,0 +1,19 @@
+body {
+	background-color: #fffff;
+	padding: 15px;
+	margin: 0px;
+	-webkit-columns: 300px 2;
+	        columns: 300px 2;
+}
+	
+	body .box { 
+		display: block;
+	}
+	
+	body .box .circle {
+			float: left;
+		}
+	
+	body a {
+		color: black;
+	}
