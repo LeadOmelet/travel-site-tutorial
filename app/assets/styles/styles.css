@@ -1,20 +1,8 @@
-$mainColor: #fffff;
+@import "normalize.css";
+@import "base/_variables";
+@import "base/_global";
+@import "modules/_large-hero";
+@import "modules/_btn";
+/* Import is Native but not what we want. We want PostCSS to replace it with the actual CSS from import.
+Imports need to be at the top of the file. */
 
-body {
-	background-color: $mainColor;
-	padding: 15px;
-	margin: 0px;
-	columns: 300px 2;
-	
-	.box { 
-		display: block;
-		
-		.circle {
-			float: left;
-		}
-	}
-	
-	a {
-		color: black;
-	}
-}

@@ -1,0 +1,47 @@
+.large-hero {
+	position: relative;
+	
+	/* & (or ampersand) maintains BEM philosophy while also allowing for nesting. & == ".large-hero" (ie: ".large-hero__title" instead of ".large-hero .large-hero__title") */
+	&__text-content {
+		position: absolute;
+		/* Vertical alignment */
+		top: 50%;
+		transform: translateY(-50%);
+		left: 0;
+		width: 100%;
+		text-align: center;
+	}
+	
+	&__title {
+		font-weight:300;
+		color: $mainBlue;
+		font-size: 4.8rem;
+		margin:0;
+	}
+	
+	/*
+	No "large-hero h1"
+	Use BEM: Block (independent reusable part of our file), Element (element belongs to a block such as title styling not reused anywhere else in the design), Modifier (mod can be used on a block or an element, modifier classes "mobile-menu" "mobile-menu--is-open" or "btn" and "btn btn--orange")
+	ie: large-hero__title
+	*/
+
+	&__subtitle {
+		font-weight: 300;
+		color: $mainBlue;
+		font-size: 2.9rem;
+		margin:0;
+	}
+	
+	&__description {
+		color: #FFF;
+		font-size: 1.5rem;
+		font-weight: 100;
+		text-shadow: 2px 2px 0 rgba(0,0,0,.10);
+		max-width:30rem; /* 480px/16px = 30 */
+		margin-left:auto;
+		margin-right:auto;
+		/* 
+		rem = everything is relative to the html element or user setting.
+		*/
+	}
+}
