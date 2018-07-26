@@ -659,6 +659,10 @@ img {
 		margin-bottom: 1.6em;
 	}
 
+.headline--no-t-margin {
+		margin-top: 0;
+	}
+
 .row::after {
 		content: "";
 		clear: both;
@@ -675,7 +679,17 @@ img {
 		        box-sizing: border-box;
 	}
 
+/* Gives row bottom margin until screen is larger (atMedium). */
+
+.row__b-margin-until-medium {
+		margin-bottom: 1rem;
+	}
+
 @media (min-width: 800px) {
+		.row__b-margin-until-medium {
+			margin-bottom: 0;
+		}
+		
 		.row__medium-4 {
 			float: left;
 			width: 33.33%;
@@ -685,6 +699,23 @@ img {
 			float: left;
 			width: 66.66%;
 		}
+	}
+
+.generic-content-container p {
+		line-height: 1.65;
+		margin: 1.8rem 0;
+	}
+
+@media (min-width: 530px) {
+
+.generic-content-container p {
+			font-size: 1.125rem
+	}
+	}
+
+.generic-content-container p a {
+		font-weight: 700;
+		color: #d59541;
 	}
 
 /* Import is Native but not what we want. We want PostCSS to replace it with the actual CSS from import.
