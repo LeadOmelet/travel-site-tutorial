@@ -770,19 +770,43 @@ img {
 
 .feature-item {
 	position: relative;
-	padding-left: 94px;
 	padding-bottom: 2.5rem;
 }
 
+@media (min-width: 530px) {
+
+.feature-item {
+		padding-left: 94px
+}
+	}
+
 .feature-item__icon {
-		position: absolute;
-		left: 0;
+		display: block;
+		margin: 0 auto;
+	}
+
+@media (min-width: 530px) {
+
+.feature-item__icon {
+			position: absolute;
+			left: 0
+	}
 	}
 
 .feature-item__title {
 		font-weight: 300;
-		font-size: 1.875rem;
+		margin-top: .7em;
 		margin-bottom: .8rem;
+		text-align: center;
+	}
+
+@media (min-width: 530px) {
+
+.feature-item__title {
+			text-align: left;
+			margin-top: 1em;
+			font-size: 1.875rem
+	}
 	}
 
 /* Import is Native but not what we want. We want PostCSS to replace it with the actual CSS from import.
