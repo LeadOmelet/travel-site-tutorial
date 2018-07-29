@@ -70,54 +70,13 @@
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _mobileMenu = __webpack_require__(1);
 
-var _person = __webpack_require__(1);
-
-var _person2 = _interopRequireDefault(_person);
+var _mobileMenu2 = _interopRequireDefault(_mobileMenu);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/* blueprints (in JS) usually have capitilized letter. Constructor function. */
-/* Web Pack allows us to better organize JS files. By making sense of NodeJS require function. */
-var $ = __webpack_require__(2); //Webpack can use npm packages too.
-//var Person = require('./modules/person');
-//ES6 BABY!
-
-alert("WHO?>!?!?!?!?!");
-
-var Adult = function (_Person) {
-	_inherits(Adult, _Person);
-
-	function Adult() {
-		_classCallCheck(this, Adult);
-
-		return _possibleConstructorReturn(this, (Adult.__proto__ || Object.getPrototypeOf(Adult)).apply(this, arguments));
-	}
-
-	_createClass(Adult, [{
-		key: 'payTaxes',
-		value: function payTaxes() {
-			console.log("Jane paid dem taxes.");
-		}
-	}]);
-
-	return Adult;
-}(_person2.default);
-
-var john = new _person2.default("John Doe", "blue");
-john.greet();
-
-var jane = new _person2.default("Jane Smith", "greeeeen");
-jane.greet();
-
-$("h1").remove();
+var mobileMenu = new _mobileMenu2.default();
 
 /***/ }),
 /* 1 */
@@ -132,30 +91,45 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _jquery = __webpack_require__(2);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Person = function () {
-	function Person(fullName, favColor) {
-		_classCallCheck(this, Person);
+var MobileMenu = function () {
+	function MobileMenu() {
+		_classCallCheck(this, MobileMenu);
 
-		this.name = fullName;
-		this.favColor = favColor;
+		this.siteHeader = (0, _jquery2.default)(".site-header");
+		this.menuIcon = (0, _jquery2.default)(".site-header__menu-icon");
+		this.menuContent = (0, _jquery2.default)(".site-header__menu-content");
+		this.events();
 	}
 
-	_createClass(Person, [{
-		key: "greet",
-		value: function greet() {
-			console.log("Sup bitches. This is es2015... YAY122");
+	//Events function is used to monitor for events (and prevent spaghetti Jquery)
+
+
+	_createClass(MobileMenu, [{
+		key: "events",
+		value: function events() {
+			this.menuIcon.click(this.toggleMenu.bind(this)); //bind this prevents dom element from taking over togglemenu function this reference.
+		}
+	}, {
+		key: "toggleMenu",
+		value: function toggleMenu() {
+			this.menuContent.toggleClass("site-header__menu-content--is-visible");
+			this.siteHeader.toggleClass("site-header--is-expanded");
+			this.menuIcon.toggleClass("site-header__menu-icon--close-x");
 		}
 	}]);
 
-	return Person;
+	return MobileMenu;
 }();
 
-//module.exports = Person;
-
-
-exports.default = Person; //ES6
+exports.default = MobileMenu;
 
 /***/ }),
 /* 2 */
