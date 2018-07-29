@@ -1335,12 +1335,16 @@ img {
 
 .reveal-item {
 	opacity: 0;
-	-webkit-transition: opacity 1.5s ease-out;
-	transition: opacity 1.5s ease-out;
+	-webkit-transition: all 1.5s ease-out;
+	transition: all 1.5s ease-out;
+	-webkit-transform: scale(1.2);
+	        transform: scale(1.2);
 }
 
 .reveal-item--is-visible {
 		opacity: 1;
+		-webkit-transform: scale(1);
+		        transform: scale(1);
 	}
 
 /* Import is Native but not what we want. We want PostCSS to replace it with the actual CSS from import.

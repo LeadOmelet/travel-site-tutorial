@@ -2,8 +2,9 @@ import $ from 'jquery';
 import waypoints from '../../../../node_modules/waypoints/lib/noframework.waypoints';
 
 class RevealOnScroll {
-	constructor(){
-		this.itemsToReveal = $(".feature-item");
+	constructor(items, offset){
+		this.itemsToReveal = items;
+		this.offsetPercentage = offset;
 		this.hideInitially();
 		this.createWaypoints();
 	}
@@ -13,6 +14,7 @@ class RevealOnScroll {
 	}
 	
 	createWaypoints(){
+		var that = this;
 		this.itemsToReveal.each(function(){
 			var currentItem = this;
 			new Waypoint({
@@ -20,7 +22,7 @@ class RevealOnScroll {
 				handler: function(){
 					$(currentItem).addClass("reveal-item--is-visible");
 				}, //what to happen when element is scrolled to.
-				offset: "80%"
+				offset: that.offsetPercentage
 			});
 		});
 		//By default waypoint doesn't react until the top of the element is at the top of the page in browser / viewport.
