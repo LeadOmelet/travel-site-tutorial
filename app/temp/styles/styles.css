@@ -1333,6 +1333,16 @@ img {
 	}
 	}
 
+.reveal-item {
+	opacity: 0;
+	-webkit-transition: opacity 1.5s ease-out;
+	transition: opacity 1.5s ease-out;
+}
+
+.reveal-item--is-visible {
+		opacity: 1;
+	}
+
 /* Import is Native but not what we want. We want PostCSS to replace it with the actual CSS from import.
 Imports need to be at the top of the file. */
 
