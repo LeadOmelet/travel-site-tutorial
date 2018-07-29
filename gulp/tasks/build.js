@@ -33,7 +33,7 @@ gulp.task('copyGeneralFiles', ['deleteDistFolder'], function(){
 
   return gulp.src(pathsToCopy)
       .pipe(gulp.dest("./docs"));
-})
+});
 
 gulp.task('optimizeImages', ['deleteDistFolder'], function(){
   /* ! - exlude icons folder and anything in it. */
@@ -47,8 +47,8 @@ gulp.task('optimizeImages', ['deleteDistFolder'], function(){
 });
 
 gulp.task('useminTrigger', ['deleteDistFolder'], function(){
-  gulp.start('usemin')
-}]);
+  gulp.start('usemin');
+});
 
 gulp.task('usemin', ['styles', 'scripts'], function(){
   return gulp.src('./app/index.html')
