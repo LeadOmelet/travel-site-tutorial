@@ -16,7 +16,7 @@
 		@mixin atLarge {
 			/* This allows for lazy loading of background images. */
 			&.lazyloaded {
-				background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
+				background: url('../../assets/images/testimonials-bg.jpg') top center no-repeat;
 				background-size: cover;
 			}
 		}
